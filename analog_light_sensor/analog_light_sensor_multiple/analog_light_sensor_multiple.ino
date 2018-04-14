@@ -5,10 +5,13 @@
 #define LIGHT_SENSOR4 A4
 #define LIGHT_SENSOR5 A5
 
+const int id = 0;
+
 String inputString = "";
 boolean isStringComplete = false;
 
 boolean isSensing = false;
+boolean isSendId = false;
 
 
 void setup() {
@@ -17,16 +20,26 @@ void setup() {
 
 
 void loop() {
-  
+
   if (isStringComplete) {
-    if (inputString == "P" || inputString == "p") {
+    if (inputString == "b" || inputString == "B") {
       isSensing = true;
     }
-    else if (inputString == "S" || inputString == "s") {
+    else if (inputString == "e" || inputString == "E") {
       isSensing = false;
+    }
+    else if (inputString == "i" || inputString == "I") {
+      isSendId = true;
     }
     inputString = "";
     isStringComplete = false;
+  }
+
+  if (isSendId) {
+    Serial.print("ID");
+    Serial.print(",");
+    Serial.println(id);
+    isSendId = false;
   }
 
   if (isSensing) {
@@ -36,6 +49,8 @@ void loop() {
     int sensorValue3 = analogRead(LIGHT_SENSOR3);
     int sensorValue4 = analogRead(LIGHT_SENSOR4);
     int sensorValue5 = analogRead(LIGHT_SENSOR5);
+    Serial.print("VAL");
+    Serial.print(",");
     Serial.print(sensorValue0);
     Serial.print(",");
     Serial.print(sensorValue1);
@@ -47,7 +62,7 @@ void loop() {
     Serial.print(sensorValue4);
     Serial.print(",");
     Serial.println(sensorValue5);
-    delay(10);
+    delay(1);
   }
 }
 
