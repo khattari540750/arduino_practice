@@ -29,7 +29,7 @@ void loop() {
       mode = "";
     }
     else if (inputString == "i" || inputString == "I") {
-      mode = "getID";
+      mode = "getId";
     }
     inputString = "";
     isStringComplete = false;
@@ -40,7 +40,8 @@ void loop() {
 
 
 void changeThreshold(int lightId, int threshold) {
-  
+  if(lightId >= 0 && lightId < 6) {
+  }
 }
 
 
