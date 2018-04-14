@@ -17,6 +17,7 @@ void setup() {
 
 
 void loop() {
+  
   if (isStringComplete) {
     if (inputString == "P" || inputString == "p") {
       isSensing = true;
