@@ -12,11 +12,12 @@ void setup() {
 
 
 void loop() {
+  
   if (isStringComplete) {
-    if (inputString == "P" || inputString == "p") {
+    if (inputString == "B" || inputString == "b") {
       isSensing = true;
     }
-    else if (inputString == "S" || inputString == "s") {
+    else if (inputString == "E" || inputString == "e") {
       isSensing = false;
     }
     inputString = "";
@@ -26,7 +27,7 @@ void loop() {
   if (isSensing) {
     int sensorValue = analogRead(LIGHT_SENSOR);
     Serial.println(sensorValue);
-    delay(10);
+    delay(1);
   }
 }
 
