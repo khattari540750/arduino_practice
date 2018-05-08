@@ -12,6 +12,9 @@ void setup() {
 
 
 void loop() {
+
+   Serial.println("aaaa");
+    delay(1);
   
   if (isStringComplete) {
     if (inputString == "B" || inputString == "b") {
